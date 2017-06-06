@@ -8,5 +8,13 @@ namespace engine
 {
     public class Zombie : Mob
     {
+
+
+        public Zombie(int i, string n, Position p)
+        {
+            id = i;
+            name = n;
+            pos = p;
+        }
     }
 }

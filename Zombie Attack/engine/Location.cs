@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace engine
 {
-    class Location
+    public class Location
     {
+        public int width;
+        public int height;
+
+        public Location(int w, int h)
+        {
+            width = w;
+            height = h;
+        }
     }
 }

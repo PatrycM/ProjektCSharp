@@ -10,5 +10,6 @@ namespace engine
     {
         public int id { get; set; }
         public string name { get; set; }
+        public Position pos { get; set; }
     }
 }

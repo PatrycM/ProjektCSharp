@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace engine
 {
-    public class Attack
+    public class Position
     {
-        public Position missile_pos;
+        public int x { get; set; }
+        public int y { get; set; }
 
-        public Attack(Position p)
+        public Position(int a, int b)
         {
-            missile_pos = p;
+            x = a;
+            y = b;
         }
     }
 }

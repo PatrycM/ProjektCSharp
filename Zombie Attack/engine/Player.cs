@@ -10,5 +10,14 @@ namespace engine
     {
         public int gold { get; set; }
         public int lives { get; set; }
+
+        public Player(int i, string n, int g, int l, Position p)
+        {
+            id = i;
+            name = n;
+            gold = g;
+            lives = l;
+            pos = p;
+        }
     }
 }
