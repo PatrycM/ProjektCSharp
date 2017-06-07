@@ -19,6 +19,8 @@ namespace Zombie_Attack
         public Form1()
         {
             InitializeComponent();
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.Parent = pictureBox1;
 
             location1 = new Location(11,11);
             start_pos = new Position(6,6);
@@ -27,31 +29,102 @@ namespace Zombie_Attack
             lbl_gold.Text = player_.gold.ToString();
             lbl_lives.Text = player_.lives.ToString();
 
-            this.KeyPress += new KeyPressEventHandler(Form1_KeyPress);
+            KeyPress += new KeyPressEventHandler(Form1_KeyPress);
 
         }
 
+        int current=1;
+
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
+            int c = 0;
             if (e.KeyChar == 'w' && pictureBox2.Location.Y > 50)
             {
-                pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Sprites/char_up.png";
-                pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y - 5);
+                if (current == 0)
+                {
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Sprites/char_up_1.png";
+                    pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y - 5);
+                    c = 1;
+                }
+                if (current == 1)
+                {
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Sprites/char_up_2.png";
+                    pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y - 5);
+                    c = 2;
+                }
+                if (current == 2)
+                {
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Sprites/char_up.png";
+                    pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y - 5);
+                    c = 0;
+                }
+                current = c;
             }
             if (e.KeyChar == 'a' && pictureBox2.Location.X > 50)
             {
-                pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Sprites/char_left.png";
-                pictureBox2.Location = new Point(pictureBox2.Location.X - 5, pictureBox2.Location.Y);
+                if (current == 0)
+                {
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Sprites/char_left_1.png";
+                    pictureBox2.Location = new Point(pictureBox2.Location.X - 5, pictureBox2.Location.Y);
+                    c = 1;
+                }
+                if (current == 1)
+                {
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Sprites/char_left_2.png";
+                    pictureBox2.Location = new Point(pictureBox2.Location.X - 5, pictureBox2.Location.Y);
+                    c = 2;
+                }
+                if (current == 2)
+                {
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Sprites/char_left.png";
+                    pictureBox2.Location = new Point(pictureBox2.Location.X - 5, pictureBox2.Location.Y);
+                    c = 0;
+                }
+                current = c;
             }
             if (e.KeyChar == 's' && pictureBox2.Location.Y < 420)
             {
-                pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Sprites/char_0.png";
-                pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y + 5);
+                if(current == 0)
+                {
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Sprites/char_0_1.png";
+                    pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y + 5);
+                    c = 1;
+                }
+                if (current == 1)
+                {
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Sprites/char_0_2.png";
+                    pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y + 5);
+                    c = 2;
+                }
+                if (current == 2)
+                {
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Sprites/char_0.png";
+                    pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y + 5);
+                    c = 0;
+                }
+                current = c;
             }
             if (e.KeyChar == 'd' && pictureBox2.Location.X < 400)
             {
-                pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Sprites/char_right.png";
-                pictureBox2.Location = new Point(pictureBox2.Location.X + 5, pictureBox2.Location.Y);
+                if (current == 0)
+                {
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Sprites/char_right_1.png";
+                    pictureBox2.Location = new Point(pictureBox2.Location.X + 5, pictureBox2.Location.Y);
+                    c = 1;
+                }
+                if (current == 1)
+                {
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Sprites/char_right_2.png";
+                    pictureBox2.Location = new Point(pictureBox2.Location.X + 5, pictureBox2.Location.Y);
+                    c = 2;
+                }
+                if (current == 2)
+                {
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Sprites/char_right.png";
+                    pictureBox2.Location = new Point(pictureBox2.Location.X + 5, pictureBox2.Location.Y);
+                    c = 0;
+                }
+                current = c;
             }
         }
     }
