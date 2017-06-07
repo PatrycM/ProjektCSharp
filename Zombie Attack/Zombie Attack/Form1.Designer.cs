@@ -91,14 +91,14 @@
             this.pictureBox2.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Sprites/char_0.png";
+            this.pictureBox2.ImageLocation = "https://raw.githubusercontent.com/PatrycM/ProjektCSharp/master/Zombie%20Attack/Sp" +
+    "rites/char_0.png";
             this.pictureBox2.Location = new System.Drawing.Point(461, 455);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 32);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
-
             // 
             // Form1
             // 
