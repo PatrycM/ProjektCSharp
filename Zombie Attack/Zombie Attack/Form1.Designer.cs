@@ -41,7 +41,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(973, 172);
+            this.label1.Location = new System.Drawing.Point(856, 172);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 25);
             this.label1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(973, 329);
+            this.label2.Location = new System.Drawing.Point(856, 329);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 25);
             this.label2.TabIndex = 1;
@@ -59,7 +59,7 @@
             // lbl_lives
             // 
             this.lbl_lives.AutoSize = true;
-            this.lbl_lives.Location = new System.Drawing.Point(1095, 172);
+            this.lbl_lives.Location = new System.Drawing.Point(953, 172);
             this.lbl_lives.Name = "lbl_lives";
             this.lbl_lives.Size = new System.Drawing.Size(70, 25);
             this.lbl_lives.TabIndex = 2;
@@ -68,7 +68,7 @@
             // lbl_gold
             // 
             this.lbl_gold.AutoSize = true;
-            this.lbl_gold.Location = new System.Drawing.Point(1095, 329);
+            this.lbl_gold.Location = new System.Drawing.Point(953, 329);
             this.lbl_gold.Name = "lbl_gold";
             this.lbl_gold.Size = new System.Drawing.Size(70, 25);
             this.lbl_gold.TabIndex = 3;
@@ -81,7 +81,7 @@
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox2.Image = global::Zombie_Attack.Properties.Resources.char_0;
             this.pictureBox2.ImageLocation = "";
-            this.pictureBox2.Location = new System.Drawing.Point(461, 455);
+            this.pictureBox2.Location = new System.Drawing.Point(384, 384);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 32);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -94,7 +94,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Image = global::Zombie_Attack.Properties.Resources.grass;
             this.pictureBox1.ImageLocation = "";
-            this.pictureBox1.Location = new System.Drawing.Point(80, 80);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(800, 800);
             this.pictureBox1.TabIndex = 4;
@@ -104,7 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1254, 929);
+            this.ClientSize = new System.Drawing.Size(1054, 729);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_gold);
