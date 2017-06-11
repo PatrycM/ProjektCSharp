@@ -42,7 +42,7 @@ namespace Zombie_Attack
             {
                 if (current == 0)
                 {
-                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Sprites/char_up_1.png";
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Zombie Attack/Resources/char_up_1.png";
                     pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y - 5);
                     c = 1;
                 }
@@ -64,19 +64,19 @@ namespace Zombie_Attack
             {
                 if (current == 0)
                 {
-                    pictureBox2.ImageLocation = "https://raw.githubusercontent.com/PatrycM/ProjektCSharp/master/Zombie%20Attack/Sprites/char_left_1.png";
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Zombie Attack/Resources/char_left_1.png";
                     pictureBox2.Location = new Point(pictureBox2.Location.X - 5, pictureBox2.Location.Y);
                     c = 1;
                 }
                 if (current == 1)
                 {
-                    pictureBox2.ImageLocation = "https://raw.githubusercontent.com/PatrycM/ProjektCSharp/master/Zombie%20Attack/Sprites/char_left_2.png";
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Zombie Attack/Resources/char_left_2.png";
                     pictureBox2.Location = new Point(pictureBox2.Location.X - 5, pictureBox2.Location.Y);
                     c = 2;
                 }
                 if (current == 2)
                 {
-                    pictureBox2.ImageLocation = "https://raw.githubusercontent.com/PatrycM/ProjektCSharp/master/Zombie%20Attack/Sprites/char_left.png";
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Zombie Attack/Resources/char_left.png";
                     pictureBox2.Location = new Point(pictureBox2.Location.X - 5, pictureBox2.Location.Y);
                     c = 0;
                 }
@@ -86,19 +86,19 @@ namespace Zombie_Attack
             {
                 if(current == 0)
                 {
-                    pictureBox2.ImageLocation = "https://raw.githubusercontent.com/PatrycM/ProjektCSharp/master/Zombie%20Attack/Sprites/char_0_1.png";
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Zombie Attack/Resources/char_0_1.png";
                     pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y + 5);
                     c = 1;
                 }
                 if (current == 1)
                 {
-                    pictureBox2.ImageLocation = "https://raw.githubusercontent.com/PatrycM/ProjektCSharp/master/Zombie%20Attack/Sprites/char_0_2.png";
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Zombie Attack/Resources/char_0_2.png";
                     pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y + 5);
                     c = 2;
                 }
                 if (current == 2)
                 {
-                    pictureBox2.ImageLocation = "https://raw.githubusercontent.com/PatrycM/ProjektCSharp/master/Zombie%20Attack/Sprites/char_0.png";
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Zombie Attack/Resources/char_0.png";
                     pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y + 5);
                     c = 0;
                 }
@@ -108,19 +108,19 @@ namespace Zombie_Attack
             {
                 if (current == 0)
                 {
-                    pictureBox2.ImageLocation = "https://raw.githubusercontent.com/PatrycM/ProjektCSharp/master/Zombie%20Attack/Sprites/char_right_1.png";
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Zombie Attack/Resources/char_right_1.png";
                     pictureBox2.Location = new Point(pictureBox2.Location.X + 5, pictureBox2.Location.Y);
                     c = 1;
                 }
                 if (current == 1)
                 {
-                    pictureBox2.ImageLocation = "https://raw.githubusercontent.com/PatrycM/ProjektCSharp/master/Zombie%20Attack/Sprites/char_right_2.png";
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Zombie Attack/Resources/char_right_2.png";
                     pictureBox2.Location = new Point(pictureBox2.Location.X + 5, pictureBox2.Location.Y);
                     c = 2;
                 }
                 if (current == 2)
                 {
-                    pictureBox2.ImageLocation = "https://raw.githubusercontent.com/PatrycM/ProjektCSharp/master/Zombie%20Attack/Sprites/char_right.png";
+                    pictureBox2.ImageLocation = "C:/Users/Patrycjusz/Source/Repos/ProjektCSharp/Zombie Attack/Zombie Attack/Resources/char_right.png";
                     pictureBox2.Location = new Point(pictureBox2.Location.X + 5, pictureBox2.Location.Y);
                     c = 0;
                 }
@@ -131,7 +131,6 @@ namespace Zombie_Attack
 }
 
 // To do: 
-// wrzucić sprity i teksturę na gita + dodać animacje + transparentność!
 // zmienić tak, żeby position robiło wszystko, a nie img location 
 // dorzucić ruch potworów i wymyślić im random walk
 // bounce enemy<=>player (lives)
