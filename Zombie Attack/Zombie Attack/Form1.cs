@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using engine;
 
@@ -37,8 +39,23 @@ namespace Zombie_Attack
             //keyboard events
             KeyPress += new KeyPressEventHandler(Form1_KeyPress);
 
-            //zombie spawn
-            Zombie_Spawn();
+            //Zombie Spawn
+            System.Windows.Forms.Timer timer1 = new System.Windows.Forms.Timer();
+            timer1.Interval = 5000; //spawn frequency
+            timer1.Tick += new System.EventHandler(this.Zombie_Spawn);
+            timer1.Start();
+            Stopwatch counter = new Stopwatch();
+            counter.Start();
+
+            //Zombie Move
+            System.Windows.Forms.Timer timer2 = new System.Windows.Forms.Timer();
+            timer2.Interval = 200; //spawn frequency
+            timer2.Tick += new System.EventHandler(this.Zombie_Step);
+            if (counter.ElapsedMilliseconds >= 5000)
+            {
+                timer2.Start();
+            }
+
 
         }
 
@@ -95,7 +112,7 @@ namespace Zombie_Attack
                 current = c;
             }
             //character movement DOWN
-            if (e.KeyChar == 's' && pictureBox2.Location.Y < 400)
+            if (e.KeyChar == 's' && pictureBox2.Location.Y < 384)
             {
                 if(current == 0)
                 {
@@ -145,47 +162,90 @@ namespace Zombie_Attack
         //Monster spawning
         Random rand = new Random(); //new object to make pseudorandom integers
         PictureBox[] pic_zombie = new PictureBox[20];
+        
 
-        private void Zombie_Spawn()
+        private void Zombie_Create(int k)
         {
             int set_x = 0;
             int set_y = 0;
 
-            for (int i = 1; i <= 1; i++)
+            pic_zombie[k] = new PictureBox();
+            int rand_area = rand.Next(1, 5); //map edge random
+
+            //zombie location random
+            if (rand_area == 1)
             {
-                int rand_area = rand.Next(1, 5); //map edge random
-
-                //zombie location random
-                if (rand_area == 1)
-                {
-                    
-                }
-                if (rand_area == 2)
-                {
-                    
-                }
-                if (rand_area == 3)
-                {
-                    
-                }
-                if (rand_area == 4)
-                {
-                    
-                }
-
-                //pic_zombie[i].Location = new Point();
-                //pic_zombie[i].Image = global::Zombie_Attack.Properties.Resources.zom_0;
-                //this.Controls.Add(this.pic_zombie[i]);
-                //pic_zombie[i].BringToFront();
-                //pic_zombie[i].BackColor = Color.Transparent;
-                //pic_zombie[i].Parent = pictureBox1;
+                set_x = 192;
+                set_y = 0;
             }
-            //pic_zombie.Location = new Point(200, 200);
-            //pic_zombie.Image = global::Zombie_Attack.Properties.Resources.zom_0;
-            //this.Controls.Add(this.pic_zombie);
-            //pic_zombie.BringToFront();
-            //pic_zombie.BackColor = Color.Transparent;
-            //pic_zombie.Parent = pictureBox1;
+            if (rand_area == 2)
+            {
+                set_x = 0;
+                set_y = 200;
+            }
+            if (rand_area == 3)
+            {
+                set_x = 368;
+                set_y = 200;
+            }
+            if (rand_area == 4)
+            {
+                set_x = 192;
+                set_y = 384;
+            }
+
+            pic_zombie[k].Location = new Point(set_x, set_y);
+            pic_zombie[k].Image = global::Zombie_Attack.Properties.Resources.zom_0;
+            this.Controls.Add(this.pic_zombie[i]);
+            pic_zombie[k].BringToFront();
+            pic_zombie[k].BackColor = Color.Transparent;
+            pic_zombie[k].Parent = pictureBox1;
+        }
+
+        int i = 1;
+   
+        private void Zombie_Spawn(object sender, EventArgs e)
+        {
+            if (i < 20)
+            {
+                Zombie_Create(i);
+                i++;
+            }
+        }
+
+        //zombie moving
+        private void Zombie_Step(object sender, EventArgs e)
+        {
+            for (int j = 1; j == 20; j++)
+            {
+                int move_x = 0;
+                int move_y = 0;
+                int dist_x = pic_zombie[j].Location.X - pictureBox2.Location.X;
+                int dist_y = pic_zombie[j].Location.Y - pictureBox2.Location.Y;
+
+                if (dist_x > 0)
+                {
+                    move_x = -4;
+                }
+                if (dist_x < 0)
+                {
+                    move_x = 4;
+                }
+
+                if (dist_y > 0)
+                {
+                    move_y = 4;
+                }
+                if (dist_y < 0)
+                {
+                    move_y = -4;
+                }
+                if (dist_x ==0 && dist_y ==0)
+                {
+                    player_.lives -= 1;
+                }
+                pic_zombie[j].Location = new Point(pic_zombie[j].Location.X+move_x, pic_zombie[j].Location.Y+move_y);
+            }
         }
 
 
