@@ -22,17 +22,12 @@ namespace Zombie_Attack
         private void button1_Click(object sender, EventArgs e)
         {
             Form1 newform = new Form1();
-            newform.MdiParent = this;
             newform.Show();
-            newform.WindowState = FormWindowState.Maximized;
-            newform.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            newform.ControlBox = false;
-            newform.Text = String.Empty;
+        }
 
-
-            button1.Visible = false;
-            button2.Visible = false;
-            button3.Visible = false;
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

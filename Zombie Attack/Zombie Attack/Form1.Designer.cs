@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lbl_lives = new System.Windows.Forms.Label();
             this.lbl_gold = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -38,37 +36,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(856, 172);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Lives: ";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(856, 329);
+            this.label2.Location = new System.Drawing.Point(849, 212);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Gold:";
             // 
-            // lbl_lives
-            // 
-            this.lbl_lives.AutoSize = true;
-            this.lbl_lives.Location = new System.Drawing.Point(953, 172);
-            this.lbl_lives.Name = "lbl_lives";
-            this.lbl_lives.Size = new System.Drawing.Size(70, 25);
-            this.lbl_lives.TabIndex = 2;
-            this.lbl_lives.Text = "label3";
-            // 
             // lbl_gold
             // 
             this.lbl_gold.AutoSize = true;
-            this.lbl_gold.Location = new System.Drawing.Point(953, 329);
+            this.lbl_gold.Location = new System.Drawing.Point(932, 212);
             this.lbl_gold.Name = "lbl_gold";
             this.lbl_gold.Size = new System.Drawing.Size(70, 25);
             this.lbl_gold.TabIndex = 3;
@@ -108,9 +88,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_gold);
-            this.Controls.Add(this.lbl_lives);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "Zombie Attack";
@@ -122,10 +100,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbl_lives;
         private System.Windows.Forms.Label lbl_gold;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;

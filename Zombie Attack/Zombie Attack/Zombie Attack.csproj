@@ -57,6 +57,7 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -87,12 +88,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\engine\engine.csproj">
-      <Project>{56e9c905-9dcc-4744-8184-d2eef2ba6875}</Project>
-      <Name>engine</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\grass.png">

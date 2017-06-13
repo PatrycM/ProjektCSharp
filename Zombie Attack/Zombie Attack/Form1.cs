@@ -3,61 +3,48 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
-using engine;
 
 
 namespace Zombie_Attack
 {
+
     public partial class Form1 : Form
     {
-        private Player player_;
-        private Location location1;
-        private Position start_pos;
+        Player player_;
+
         public Form1()
         {
             InitializeComponent();
+
+            if (player_ == null)
+            {
+                player_ = new Player(0);
+            }
 
             //character view settings
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Parent = pictureBox1;
 
-            //constructiong abstract objects
-            location1 = new Location(11,11);
-            start_pos = new Position(6,6);
-            player_ = new Player(0,"Player",0,3,start_pos);
-
             //interface labels
-            lbl_gold.Text = player_.gold.ToString();
-            lbl_lives.Text = player_.lives.ToString();
+            lbl_gold.Text = player_.GetGold().ToString();
 
             //keyboard events
-            KeyPress += new KeyPressEventHandler(Form1_KeyPress);
+            KeyPress += new KeyPressEventHandler(Form1_KeyPress);    
 
             //Zombie Spawn
-            System.Windows.Forms.Timer timer1 = new System.Windows.Forms.Timer();
             timer1.Interval = 5000; //spawn frequency
             timer1.Tick += new System.EventHandler(this.Zombie_Spawn);
             timer1.Start();
-            Stopwatch counter = new Stopwatch();
-            counter.Start();
-
-            //Zombie Move
-            System.Windows.Forms.Timer timer2 = new System.Windows.Forms.Timer();
-            timer2.Interval = 200; //spawn frequency
-            timer2.Tick += new System.EventHandler(this.Zombie_Step);
-            if (counter.ElapsedMilliseconds >= 5000)
-            {
-                timer2.Start();
-            }
-
-
+                
         }
+
+        System.Windows.Forms.Timer timer1 = new System.Windows.Forms.Timer();
+        System.Windows.Forms.Timer timer2 = new System.Windows.Forms.Timer();
 
         int current = 1; //direction count variable
         int c = 0; //animation count variable
@@ -161,7 +148,7 @@ namespace Zombie_Attack
         
         //Monster spawning
         Random rand = new Random(); //new object to make pseudorandom integers
-        PictureBox[] pic_zombie = new PictureBox[20];
+        PictureBox[] pic_zombie = new PictureBox[2000];
         
 
         private void Zombie_Create(int k)
@@ -209,52 +196,82 @@ namespace Zombie_Attack
             if (i < 20)
             {
                 Zombie_Create(i);
+                if (i == 1) //starts a timer after first zombie spawned
+                {
+                    //Zombie Move
+                    timer2.Interval = 200;
+                    timer2.Tick += new System.EventHandler(this.Zombie_Move);
+                    timer2.Start();
+                }
                 i++;
             }
         }
 
         //zombie moving
-        private void Zombie_Step(object sender, EventArgs e)
+        private void Zombie_Step(int r)
         {
-            for (int j = 1; j == 20; j++)
+            int mov_x = 0, mov_y = 0, dist_x = 0, dist_y = 0;
+
+            dist_x = pic_zombie[r].Location.X - pictureBox2.Location.X;
+            dist_y = pic_zombie[r].Location.Y - pictureBox2.Location.Y;
+
+            if (dist_x > 0)
             {
-                int move_x = 0;
-                int move_y = 0;
-                int dist_x = pic_zombie[j].Location.X - pictureBox2.Location.X;
-                int dist_y = pic_zombie[j].Location.Y - pictureBox2.Location.Y;
+                mov_x = -4;
+            }
+            if (dist_x < 0)
+            {
+                mov_x = 4;
+            }
+            if (dist_x == 0)
+            {
+                mov_x = 0;
+            }
 
-                if (dist_x > 0)
-                {
-                    move_x = -4;
-                }
-                if (dist_x < 0)
-                {
-                    move_x = 4;
-                }
+            if (dist_y > 0)
+            {
+                mov_y = -4;
+            }
+            if (dist_y < 0)
+            {
+                mov_y = 4;
+            }
+            if (dist_y == 0)
+            {
+                mov_y = 0;
+            }
 
-                if (dist_y > 0)
-                {
-                    move_y = 4;
-                }
-                if (dist_y < 0)
-                {
-                    move_y = -4;
-                }
-                if (dist_x ==0 && dist_y ==0)
-                {
-                    player_.lives -= 1;
-                }
-                pic_zombie[j].Location = new Point(pic_zombie[j].Location.X+move_x, pic_zombie[j].Location.Y+move_y);
+            if (dist_x == 0 && dist_y == 0)
+            {
+                PlayerDeath();
+            }
+            else
+            {
+                pic_zombie[r].Location = new Point(pic_zombie[r].Location.X + mov_x, pic_zombie[r].Location.Y + mov_y);
             }
         }
 
+        private void Zombie_Move(object sender, EventArgs e)
+        {
+            for(int r = 1; r<i; r++)
+            {
+                Zombie_Step(r);
+            }
+        }
+
+        private void PlayerDeath()
+        {
+            timer1.Stop();
+            timer2.Stop();
+
+            this.Close();
+
+        }
 
     }
 }
 
 // To do: 
-// zmienić tak, żeby position robiło wszystko, a nie img location 
-// dorzucić ruch potworów i wymyślić im random walk
 // bounce enemy<=>player (lives)
 // zanimować pociski
 // bounce missile<=>enemy (gold)
