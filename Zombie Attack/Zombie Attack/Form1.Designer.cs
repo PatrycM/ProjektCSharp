@@ -30,8 +30,13 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_gold = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_lives = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lbl_difficulty = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +58,33 @@
             this.lbl_gold.Size = new System.Drawing.Size(70, 25);
             this.lbl_gold.TabIndex = 3;
             this.lbl_gold.Text = "label4";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(849, 157);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 25);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Lives: ";
+            // 
+            // lbl_lives
+            // 
+            this.lbl_lives.AutoSize = true;
+            this.lbl_lives.Location = new System.Drawing.Point(932, 157);
+            this.lbl_lives.Name = "lbl_lives";
+            this.lbl_lives.Size = new System.Drawing.Size(70, 25);
+            this.lbl_lives.TabIndex = 7;
+            this.lbl_lives.Text = "label3";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(849, 506);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(188, 75);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "******Controls******\r\nW, S, A, D - move\r\nP - fire";
             // 
             // pictureBox2
             // 
@@ -80,11 +112,34 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(806, 757);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(106, 25);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Difficulty: ";
+            // 
+            // lbl_difficulty
+            // 
+            this.lbl_difficulty.AutoSize = true;
+            this.lbl_difficulty.Location = new System.Drawing.Point(932, 757);
+            this.lbl_difficulty.Name = "lbl_difficulty";
+            this.lbl_difficulty.Size = new System.Drawing.Size(70, 25);
+            this.lbl_difficulty.TabIndex = 11;
+            this.lbl_difficulty.Text = "label5";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1054, 849);
+            this.Controls.Add(this.lbl_difficulty);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lbl_lives);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_gold);
@@ -104,6 +159,11 @@
         private System.Windows.Forms.Label lbl_gold;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_lives;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl_difficulty;
     }
 }
 
