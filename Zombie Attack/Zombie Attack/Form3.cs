@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Zombie_Attack
 {
     public partial class Form3 : Form
     {
-        int score;
 
         public Form3()
         {
@@ -21,13 +21,15 @@ namespace Zombie_Attack
 
         private void button1_Click(object sender, EventArgs e)
         {
+            using (StreamWriter writetext = new StreamWriter("newnickname.txt"))
+            {
+                writetext.WriteLine(textBox1.Text);
+            }
+
             Form4 newform = new Form4();
             newform.Show();
-            newform.Set_newnickname(textBox1.Text);
-            newform.Set_score(score);
             this.Close();
         }
 
-        public void get_score(int a) { score = a; }
     }
 }

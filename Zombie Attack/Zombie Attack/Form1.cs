@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
+using System.IO;
 
 
 namespace Zombie_Attack
@@ -21,7 +22,7 @@ namespace Zombie_Attack
         {
             InitializeComponent();
 
-            player_ = new Player(2,0);
+            player_ = new Player(0,0);
 
             //character view settings
             pictureBox2.BackColor = Color.Transparent;
@@ -303,7 +304,10 @@ namespace Zombie_Attack
         private void GameOver()
         {
             Form3 newform = new Form3();
-            newform.get_score(player_.GetGold());
+            using(StreamWriter writetext = new StreamWriter("score.txt"))
+            {
+                writetext.WriteLine(player_.GetGold().ToString());
+            }
             newform.Show();
             this.Close();
         }

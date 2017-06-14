@@ -81,27 +81,24 @@
             this.name1.AutoSize = true;
             this.name1.Location = new System.Drawing.Point(437, 208);
             this.name1.Name = "name1";
-            this.name1.Size = new System.Drawing.Size(77, 25);
+            this.name1.Size = new System.Drawing.Size(0, 25);
             this.name1.TabIndex = 4;
-            this.name1.Text = "name1";
             // 
             // name2
             // 
             this.name2.AutoSize = true;
             this.name2.Location = new System.Drawing.Point(437, 300);
             this.name2.Name = "name2";
-            this.name2.Size = new System.Drawing.Size(77, 25);
+            this.name2.Size = new System.Drawing.Size(0, 25);
             this.name2.TabIndex = 5;
-            this.name2.Text = "name2";
             // 
             // name3
             // 
             this.name3.AutoSize = true;
             this.name3.Location = new System.Drawing.Point(437, 402);
             this.name3.Name = "name3";
-            this.name3.Size = new System.Drawing.Size(77, 25);
+            this.name3.Size = new System.Drawing.Size(0, 25);
             this.name3.TabIndex = 6;
-            this.name3.Text = "name3";
             // 
             // score1
             // 
