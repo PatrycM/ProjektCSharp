@@ -22,7 +22,7 @@ namespace Zombie_Attack
         {
             InitializeComponent();
 
-            player_ = new Player(0,0);
+            player_ = new Player(2, 0);
 
             //character view settings
             pictureBox2.BackColor = Color.Transparent;
@@ -34,13 +34,13 @@ namespace Zombie_Attack
             lbl_difficulty.Text = difficulty.ToString();
 
             //keyboard events
-            KeyPress += new KeyPressEventHandler(Form1_KeyPress);    
+            KeyPress += new KeyPressEventHandler(Form1_KeyPress);
 
             //Zombie Spawn
             timer1.Interval = 5000; //spawn frequency
             timer1.Tick += new System.EventHandler(this.Zombie_Spawn);
             timer1.Start();
-                
+
         }
 
         System.Windows.Forms.Timer timer1 = new System.Windows.Forms.Timer();
@@ -52,10 +52,14 @@ namespace Zombie_Attack
         int b = 1; //count of bullets
         int direction = 0; //direction of player
         int difficulty = 1; //difficulty level
+        bool keypressed = false;
 
         //keyboard events
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.Handled)
+                return;
+
             //character movement UP
             if (e.KeyChar == 'w' && pictureBox2.Location.Y > 0)
             {
@@ -107,7 +111,7 @@ namespace Zombie_Attack
             //character movement DOWN
             if (e.KeyChar == 's' && pictureBox2.Location.Y < 384)
             {
-                if(current == 0)
+                if (current == 0)
                 {
                     pictureBox2.Image = global::Zombie_Attack.Properties.Resources.char_0_1;
                     pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y + 4);
@@ -152,16 +156,20 @@ namespace Zombie_Attack
                 current = c;
                 direction = 3;
             }
-            if (e.KeyChar == 'p')
+            //fire
+            if (e.KeyChar == 'p' && keypressed == false)
             {
                 Bullet_Create(b);
                 b++;
+                keypressed = false;
             }
         }
-        
+
         //Monster spawning
         Random rand = new Random(); //new object to make pseudorandom integers
         PictureBox[] pic_zombie = new PictureBox[2000];
+
+        int[] current_z = new int[2000];
 
         private void Zombie_Create(int k)
         {
@@ -200,10 +208,11 @@ namespace Zombie_Attack
             pic_zombie[k].BackColor = Color.Transparent;
             pic_zombie[k].Parent = pictureBox1;
             movable[k] = true;
+            current_z[k] = new int();
         }
 
         int i = 1;
-   
+
         private void Zombie_Spawn(object sender, EventArgs e)
         {
             if (i <= 2000)
@@ -254,13 +263,177 @@ namespace Zombie_Attack
                 mov_y = 0;
             }
 
-            if (dist_x == 0 && dist_y == 0)
+            if (((dist_x == 32 || dist_x == -32) && (dist_y == 32 || dist_y == -32)) || ((dist_x == 32 || dist_x == -32) && dist_y==0) || (dist_x == 0 && (dist_y == 32 || dist_y == -32)))
             {
                 PlayerDeath();
             }
             else
             {
                 pic_zombie[r].Location = new Point(pic_zombie[r].Location.X + mov_x, pic_zombie[r].Location.Y + mov_y);
+
+                if (dist_x > 0 && dist_y > 0)
+                {
+                    int c = 0;
+                    if(current_z[r] == 0)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_left;
+                        c = 1;
+                    }
+                    if (current_z[r] == 1)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_left_1;
+                        c = 2;
+                    }
+                    if (current_z[r] == 2)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_left_2;
+                        c = 0;
+                    }
+                    current_z[r] = c;
+                }
+                if (dist_x > 0 && dist_y == 0)
+                {
+                    int c = 0;
+                    if (current_z[r] == 0)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_left;
+                        c = 1;
+                    }
+                    if (current_z[r] == 1)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_left_1;
+                        c = 2;
+                    }
+                    if (current_z[r] == 2)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_left_2;
+                        c = 0;
+                    }
+                    current_z[r] = c;
+                }
+                if (dist_x > 0 && dist_y < 0)
+                {
+                    int c = 0;
+                    if (current_z[r] == 0)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_left;
+                        c = 1;
+                    }
+                    if (current_z[r] == 1)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_left_1;
+                        c = 2;
+                    }
+                    if (current_z[r] == 2)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_left_2;
+                        c = 0;
+                    }
+                    current_z[r] = c;
+                }
+                ///
+                if (dist_x < 0 && dist_y > 0)
+                {
+                    int c = 0;
+                    if (current_z[r] == 0)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_right;
+                        c = 1;
+                    }
+                    if (current_z[r] == 1)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_right_1;
+                        c = 2;
+                    }
+                    if (current_z[r] == 2)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_right_2;
+                        c = 0;
+                    }
+                    current_z[r] = c;
+                }
+                if (dist_x < 0 && dist_y == 0)
+                {
+                    int c = 0;
+                    if (current_z[r] == 0)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_right;
+                        c = 1;
+                    }
+                    if (current_z[r] == 1)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_right_1;
+                        c = 2;
+                    }
+                    if (current_z[r] == 2)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_right_2;
+                        c = 0;
+                    }
+                    current_z[r] = c;
+                }
+                if (dist_x < 0 && dist_y < 0)
+                {
+                    int c = 0;
+                    if (current_z[r] == 0)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_right;
+                        c = 1;
+                    }
+                    if (current_z[r] == 1)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_right_1;
+                        c = 2;
+                    }
+                    if (current_z[r] == 2)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_right_2;
+                        c = 0;
+                    }
+                    current_z[r] = c;
+                }
+                ///
+                if (dist_x == 0 && dist_y > 0)
+                {
+                    int c = 0;
+                    if (current_z[r] == 0)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_up;
+                        c = 1;
+                    }
+                    if (current_z[r] == 1)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_up_1;
+                        c = 2;
+                    }
+                    if (current_z[r] == 2)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zombie_up_2;
+                        c = 0;
+                    }
+                    current_z[r] = c;
+                }
+                if (dist_x == 0 && dist_y < 0)
+                {
+                    int c = 0;
+                    if (current_z[r] == 0)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_0;
+                        c = 1;
+                    }
+                    if (current_z[r] == 1)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_0_1;
+                        c = 2;
+                    }
+                    if (current_z[r] == 2)
+                    {
+                        pic_zombie[r].Image = global::Zombie_Attack.Properties.Resources.zom_0_2;
+                        c = 0;
+                    }
+                    current_z[r] = c;
+                }
+
             }
         }
 
@@ -329,7 +502,7 @@ namespace Zombie_Attack
             bullet_movable[o] = true;
             b_direction[o] = direction;
             bullet[o].Location = pictureBox2.Location;
-            bullet[o].Image = global::Zombie_Attack.Properties.Resources.bullet1;
+            bullet[o].Image = global::Zombie_Attack.Properties.Resources.bullet2;
             this.Controls.Add(this.bullet[o]);
             bullet[o].BringToFront();
             bullet[o].BackColor = Color.Transparent;

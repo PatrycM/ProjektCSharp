@@ -181,6 +181,19 @@
     <Content Include="Resources\bullet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\naglowek.png" />
+    <None Include="Resources\zombie_up_2.png" />
+    <None Include="Resources\zom_up_1.png" />
+    <None Include="Resources\zom_up.png" />
+    <None Include="Resources\zom_right_2.png" />
+    <None Include="Resources\zom_right_1.png" />
+    <None Include="Resources\zom_right.png" />
+    <None Include="Resources\zom_left_2.png" />
+    <None Include="Resources\zom_left_1.png" />
+    <None Include="Resources\zom_left.png" />
+    <None Include="Resources\zom_0_2.png" />
+    <None Include="Resources\zom_0_1.png" />
+    <None Include="Resources\bullet1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
